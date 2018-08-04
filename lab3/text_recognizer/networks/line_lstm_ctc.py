@@ -35,7 +35,12 @@ def line_lstm_ctc(input_shape, output_shape, window_width=28, window_stride=14):
     # Note that lstms expect a input of shape (num_batch_size, num_timesteps, feature_length).
 
     ##### Your code below (Lab 3)
-
+    image_reshaped = Reshape((image_heigh, image_width, 1))(image_input)
+    
+    image_patches = Lambda(
+        slide_window,
+        arguments={'window_width': window_width, 'window_stride': window_stride}
+    )
     ##### Your code above (Lab 3)
 
     input_length_processed = Lambda(
