@@ -57,13 +57,6 @@ def line_lstm_ctc(input_shape, output_shape, window_width=28, window_stride=14):
     dropout2 = Dropout(0.8)(lstm_output2)
     # (num_windows, 128)
     
-#    convnet2 = Conv2D(128, (2, 2), activation='relu')(lstm_output)
-    
-#    convnet2_outputs = TimeDistributed(convnet2)(lstm_output)
-    
-#    lstm2_output = lstm_fn(128, return_sequences=True)(convnet2)
-    
-#    convnet3 = Conv2D(256, (3, 3), activation='relu')(lstm2_output)
 
     full_connected = Dense(128, activation='relu')(dropout2)
     
